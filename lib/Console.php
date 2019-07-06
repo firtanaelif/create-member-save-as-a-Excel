@@ -16,13 +16,13 @@ class Console
 
     function __construct($inputNumber, $userNumber)
     {
+        $this->tablo = new Spreadsheet();
+        $this->taslak = $this->tablo->getActiveSheet();
         $this->inputNumber = $inputNumber;
         $this->userNumber = $userNumber;
         $this->namesArray = array();
         $this->surnamesArray = array();
         $this->usersArray = array();
-        $this->tablo 			= new Spreadsheet();
-        $this->taslak			= $this->tablo->getActiveSheet();
     }
 
     public function nameRequest()
@@ -60,6 +60,8 @@ class Console
     public function saveFile()
     {
         $writer = new Xlsx($this->tablo);
-        $writer->save('hw.xlsx');
+        echo 'Lütfen, bir dosya adı giriniz:' . PHP_EOL;
+        $fileName = readline();
+        $writer->save($fileName.".xlsx");
     }
 }
