@@ -6,13 +6,13 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Console
 {
-    private $inputNumber;
-    private $userNumber;
+    private $tablo;
+    private $taslak;
+    private $inputNumber;//alınan isim ve soyad sayısı
+    private $userNumber;//üye sayısı
     private $namesArray;
     private $surnamesArray;
     private $usersArray;
-    private $tablo;
-    private $taslak;
 
     function __construct($inputNumber, $userNumber)
     {

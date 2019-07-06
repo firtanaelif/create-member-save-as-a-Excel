@@ -1,6 +1,6 @@
 <?php
 namespace App;
-
+//excel tablosuna yerleştirme
 class Excel
 {
     public function saveExcel($tablo, $excelIndex, $user)

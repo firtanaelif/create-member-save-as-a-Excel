@@ -55,6 +55,7 @@ class User
     {
         return $this->ePosta;
     }
+    //eposta oluştur
     public function createEposta()
     {
         $addition = ['gmail.com', 'outlook.com', 'hotmail.com', 'yahoo.com', '90pixel.com'];
@@ -65,6 +66,7 @@ class User
         $eng = array ('i', 'i', 'c', 'c', 'u', 'u', 'o', 'o', 's', 's', 'g', 'g','.');
         $this->setEposta(str_replace($tr,$eng,mb_strtolower($name)).".". str_replace($tr,$eng,mb_strtolower($surname))."@".$addition[$randomEk]);
     }
+    //şifre oluştur
     public function createPassword()
     {
         $this->password = bin2hex(openssl_random_pseudo_bytes(4));
