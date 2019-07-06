@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 class User
 {
@@ -63,18 +64,9 @@ class User
         $tr = array ('ı', 'İ', 'ç', 'Ç', 'Ü', 'ü', 'Ö', 'ö', 'ş', 'Ş', 'ğ', 'Ğ', ' ');
         $eng = array ('i', 'i', 'c', 'c', 'u', 'u', 'o', 'o', 's', 's', 'g', 'g','.');
         $this->setEposta(str_replace($tr,$eng,mb_strtolower($name)).".". str_replace($tr,$eng,mb_strtolower($surname))."@".$addition[$randomEk]);
-        //echo $this->getEposta();
     }
     public function createPassword()
     {
         $this->password = bin2hex(openssl_random_pseudo_bytes(4));
-        //echo $this->getPassword();
-    }
-    public function saveExcel($spreadsheet, $excelIndex)
-    {
-        $spreadsheet->setCellValue("A".$excelIndex, $this->getName());
-        $spreadsheet->setCellValue("B".$excelIndex, $this->getSurname());
-        $spreadsheet->setCellValue("C".$excelIndex, $this->getPassword());
-        $spreadsheet->setCellValue("D".$excelIndex, $this->getEposta());
     }
 }

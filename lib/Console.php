@@ -1,26 +1,28 @@
 <?php
+namespace App;
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Console
 {
-    private $spreadsheet;
-    private $sheet;
     private $inputNumber;
     private $userNumber;
     private $namesArray;
     private $surnamesArray;
     private $usersArray;
+    private $tablo;
+    private $taslak;
 
     function __construct($inputNumber, $userNumber)
     {
-        $this->spreadsheet = new Spreadsheet();
-        $this->sheet = $this->spreadsheet->getActiveSheet();
         $this->inputNumber = $inputNumber;
         $this->userNumber = $userNumber;
         $this->namesArray = array();
         $this->surnamesArray = array();
         $this->usersArray = array();
+        $this->tablo 			= new Spreadsheet();
+        $this->taslak			= $this->tablo->getActiveSheet();
     }
 
     public function nameRequest()
@@ -51,13 +53,13 @@ class Console
             $user = new User($name, $surname);
             $user->createEposta();
             $user->createPassword();
-            $user->saveExcel($this->sheet, $excelIndex);
-            //array_push($this->usersArray,$user);
+            $excel = new Excel();
+            $excel->saveExcel($this->taslak, $excelIndex, $user);
         }
     }
     public function saveFile()
     {
-        $writer = new Xlsx($this->spreadsheet);
+        $writer = new Xlsx($this->tablo);
         $writer->save('hw.xlsx');
     }
 }

@@ -10,4 +10,5 @@ return array(
     'PhpOffice\\PhpSpreadsheet\\' => array($vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet'),
     'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
     'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
+    'App\\' => array($baseDir . '/lib'),
 );
